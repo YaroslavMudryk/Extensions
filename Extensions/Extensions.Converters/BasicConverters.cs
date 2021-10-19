@@ -1,10 +1,10 @@
-﻿using System;
-
+﻿using System.Text.Json;
 namespace Extensions.Converters
 {
     public static class BasicConverters
     {
         public static bool IsNullOrEmpty(this string value) => string.IsNullOrEmpty(value);
+        
         public static bool IsNullOrWhiteSpace(this string value) => string.IsNullOrWhiteSpace(value);
 
         public static int ToInt(this string value)
@@ -61,6 +61,27 @@ namespace Extensions.Converters
             if (char.TryParse(value, out var res))
                 return res;
             return default;
+        }
+
+        /// <summary>
+        /// Converting from any object to json object
+        /// </summary>
+        /// <param name="data">Any objects</param>
+        /// <returns>Json object</returns>
+        public static string AsJson(this object data)
+        {
+            return JsonSerializer.Serialize(data);
+        }
+
+        /// <summary>
+        /// Converting from string json to object
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="data">json object in string</param>
+        /// <returns>TEntity</returns>
+        public static TEntity AsObject<TEntity>(this string data)
+        {
+            return JsonSerializer.Deserialize<TEntity>(data);
         }
     }
 }
