@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.DateTime.Convert
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Password", "Extensions.Password\Extensions.Password.csproj", "{AA202045-14CC-46D5-9992-5EEAD67450EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Converters", "Extensions.Converters\Extensions.Converters.csproj", "{57D19E2C-B9EF-458F-A2E8-E01D082669AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AA202045-14CC-46D5-9992-5EEAD67450EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA202045-14CC-46D5-9992-5EEAD67450EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA202045-14CC-46D5-9992-5EEAD67450EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D19E2C-B9EF-458F-A2E8-E01D082669AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D19E2C-B9EF-458F-A2E8-E01D082669AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D19E2C-B9EF-458F-A2E8-E01D082669AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D19E2C-B9EF-458F-A2E8-E01D082669AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
