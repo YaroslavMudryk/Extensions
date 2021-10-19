@@ -32,6 +32,28 @@ namespace Extensions.DateTime
             return (endOfYear - dateTime).TotalDays;
         }
 
+        public static System.DateTime StartOfMonth(this System.DateTime dateTime)
+        {
+            var daysInMonth = System.DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+            return new System.DateTime(dateTime.Year, dateTime.Month, 1);
+        }
+
+        public static System.DateTime EndOfMonth(this System.DateTime dateTime)
+        {
+            var daysInMonth = System.DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+            return new System.DateTime(dateTime.Year, dateTime.Month, daysInMonth);
+        }
+
+        public static System.DateTime LastWeek(this System.DateTime dateTime)
+        {
+            return dateTime.AddDays(-7);
+        }
+
+        public static System.DateTime NextWeek(this System.DateTime dateTime)
+        {
+            return dateTime.AddDays(7);
+        }
+
         public static System.DateTime AddBusinessDays(this System.DateTime current, int days, IEnumerable<System.DateTime> holidays = null)
         {
             var sign = Math.Sign(days);
@@ -49,12 +71,12 @@ namespace Extensions.DateTime
             return current;
         }
 
-        public static System.DateTime SubtractBusinessDays(this System.DateTime current, int days, IEnumerable<System.DateTime> holidays)
+        public static System.DateTime SubstractBusinessDays(this System.DateTime current, int days, IEnumerable<System.DateTime> holidays = null)
         {
             return AddBusinessDays(current, -days, holidays);
         }
 
-        public static int GetBusinessDays(this System.DateTime startDate, System.DateTime endDate, IEnumerable<System.DateTime> holidays)
+        public static int GetBusinessDays(this System.DateTime startDate, System.DateTime endDate, IEnumerable<System.DateTime> holidays = null)
         {
             if (startDate > endDate)
                 return -1;
