@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Password", "Exte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Converters", "Extensions.Converters\Extensions.Converters.csproj", "{57D19E2C-B9EF-458F-A2E8-E01D082669AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.HttpClient", "Extensions.HttpClient\Extensions.HttpClient.csproj", "{403A7073-E62D-4090-8DF0-C034BF548C00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Http", "Extensions.HttpClient\Extensions.Http.csproj", "{403A7073-E62D-4090-8DF0-C034BF548C00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

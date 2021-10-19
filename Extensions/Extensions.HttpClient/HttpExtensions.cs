@@ -1,10 +1,10 @@
-﻿using System.Net.Http.Headers;
-
-namespace Extensions.HttpClient
+﻿using System.Net.Http;
+using System.Net.Http.Headers;
+namespace Extensions.Http
 {
     public static class HttpExtensions
     {
-        public static void SetBearerToken(this System.Net.Http.HttpClient httpClient, string token)
+        public static void SetBearerToken(this HttpClient httpClient, string token)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
