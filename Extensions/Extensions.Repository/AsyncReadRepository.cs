@@ -29,7 +29,7 @@ namespace Extensions.Repository
             return await query.ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetAllAsync<TKey>(int count, int skip, Expression<Func<TEntity, TKey>> keySelector = null)
+        public async Task<List<TEntity>> GetAllPagedAsync<TKey>(int count, int skip, Expression<Func<TEntity, TKey>> keySelector = null)
         {
             return await _dbSet.AsNoTracking()
                 .OrderBy(keySelector)
