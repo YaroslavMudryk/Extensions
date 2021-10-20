@@ -29,6 +29,14 @@ namespace Extensions.Repository
             return await query.ToListAsync();
         }
 
+        public async Task<List<TEntity>> GetAllAsync<TKey>(int count, int skip, Expression<Func<TEntity, TKey>> keySelector = null)
+        {
+            return await _dbSet.AsNoTracking()
+                .OrderBy(keySelector)
+                .Skip(skip).Take(count)
+                .ToListAsync();
+        }
+
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, bool disableTracking = true)
         {
             IQueryable<TEntity> query = _dbSet;
