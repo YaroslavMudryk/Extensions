@@ -13,6 +13,11 @@ namespace Extensions.Repository
             _dbSet = _dbContext.Set<TEntity>();
         }
 
+        public ValueTask DisposeAsync()
+        {
+            return _dbContext.DisposeAsync();
+        }
+
         public async Task InsertAsync(params TEntity[] entities)
         {
             await _dbSet.AddRangeAsync(entities);

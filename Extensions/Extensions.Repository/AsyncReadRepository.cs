@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-
 namespace Extensions.Repository
 {
     public class AsyncReadRepository<TEntity> : IAsyncReadRepository<TEntity> where TEntity : class
@@ -15,6 +14,11 @@ namespace Extensions.Repository
         {
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<TEntity>();
+        }
+
+        public ValueTask DisposeAsync()
+        {
+            return _dbContext.DisposeAsync();
         }
 
         public async Task<List<TEntity>> GetAllAsync(bool disableTracking = true)
