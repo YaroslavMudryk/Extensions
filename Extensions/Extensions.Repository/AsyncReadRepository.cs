@@ -16,6 +16,13 @@ namespace Extensions.Repository
             _dbSet = _dbContext.Set<TEntity>();
         }
 
+        public async Task<long> CountAsync(Expression<Func<TEntity, bool>> predicate = null)
+        {
+            if (predicate is null)
+                return await _dbSet.LongCountAsync();
+            return await _dbSet.LongCountAsync(predicate);
+        }
+
         public ValueTask DisposeAsync()
         {
             return _dbContext.DisposeAsync();
