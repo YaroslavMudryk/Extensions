@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.Http", "Extensio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.DateTime", "Extensions.DateTime\Extensions.DateTime.csproj", "{E1ECEA8E-0EC7-4355-9A20-47C2E48D0E0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Repository", "Extensions.Repository\Extensions.Repository.csproj", "{C98653EA-90AF-4A2F-A5FE-31418D902774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.Repository", "Extensions.Repository\Extensions.Repository.csproj", "{C98653EA-90AF-4A2F-A5FE-31418D902774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Generator", "Extensions.Generator\Extensions.Generator.csproj", "{DA0B9D08-0AE8-45D7-A6E2-9AE2A5BDC411}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C98653EA-90AF-4A2F-A5FE-31418D902774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98653EA-90AF-4A2F-A5FE-31418D902774}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98653EA-90AF-4A2F-A5FE-31418D902774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0B9D08-0AE8-45D7-A6E2-9AE2A5BDC411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0B9D08-0AE8-45D7-A6E2-9AE2A5BDC411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0B9D08-0AE8-45D7-A6E2-9AE2A5BDC411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0B9D08-0AE8-45D7-A6E2-9AE2A5BDC411}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
