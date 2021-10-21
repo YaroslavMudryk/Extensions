@@ -10,6 +10,7 @@ namespace Extensions.Repository
             services.AddScoped<DbContext, TContext>();
             services.AddScoped(typeof(IAsyncReadRepository<>), typeof(AsyncReadRepository<>));
             services.AddScoped(typeof(IAsyncWriteRepository<>), typeof(AsyncWriteRepository<>));
+            services.AddScoped(typeof(IAsyncCRUDRepository<>), typeof(AsyncCRUDRepository<>));
         }
 
         public static void AddRepositories<TContext1, TContext2>(this IServiceCollection services)
@@ -20,6 +21,7 @@ namespace Extensions.Repository
             services.AddScoped<DbContext, TContext2>();
             services.AddScoped(typeof(IAsyncReadRepository<>), typeof(AsyncReadRepository<>));
             services.AddScoped(typeof(IAsyncWriteRepository<>), typeof(AsyncWriteRepository<>));
+            services.AddScoped(typeof(IAsyncCRUDRepository<>), typeof(AsyncCRUDRepository<>));
         }
 
         public static void AddRepositories<TContext1, TContext2, TContext3>(this IServiceCollection services)
@@ -32,6 +34,7 @@ namespace Extensions.Repository
             services.AddScoped<DbContext, TContext3>();
             services.AddScoped(typeof(IAsyncReadRepository<>), typeof(AsyncReadRepository<>));
             services.AddScoped(typeof(IAsyncWriteRepository<>), typeof(AsyncWriteRepository<>));
+            services.AddScoped(typeof(IAsyncCRUDRepository<>), typeof(AsyncCRUDRepository<>));
         }
 
         public static void AddRepositories<TContext1, TContext2, TContext3, TContext4>(this IServiceCollection services)
@@ -46,6 +49,7 @@ namespace Extensions.Repository
             services.AddScoped<DbContext, TContext4>();
             services.AddScoped(typeof(IAsyncReadRepository<>), typeof(AsyncReadRepository<>));
             services.AddScoped(typeof(IAsyncWriteRepository<>), typeof(AsyncWriteRepository<>));
+            services.AddScoped(typeof(IAsyncCRUDRepository<>), typeof(AsyncCRUDRepository<>));
         }
     }
 }
