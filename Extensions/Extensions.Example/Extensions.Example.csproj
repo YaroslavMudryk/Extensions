@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\V1\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Extensions.Converters\Extensions.Converters.csproj" />
     <ProjectReference Include="..\Extensions.DateTime.Converters\Extensions.DateTime.Converters.csproj" />
     <ProjectReference Include="..\Extensions.DateTime\Extensions.DateTime.csproj" />

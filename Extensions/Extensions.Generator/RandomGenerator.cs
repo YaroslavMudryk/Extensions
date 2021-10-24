@@ -35,7 +35,7 @@ namespace Extensions.Generator
 
         public static string GetUniqCode()
         {
-            return GetUniqCodeUpper(4);
+            return GetUniqCode(4);
         }
 
         public static string GetUniqCode(int sections)
@@ -56,16 +56,6 @@ namespace Extensions.Generator
             }
             var result = new String(stringChars);
             return result;
-        }
-
-        public static string GetUniqCodeUpper(int sections)
-        {
-            return GetUniqCode(sections).ToUpper();
-        }
-
-        public static string GetUniqCodeLower(int sections)
-        {
-            return GetUniqCode(sections).ToLower();
         }
 
         private static int[] getHyphenPositions(int sections)
