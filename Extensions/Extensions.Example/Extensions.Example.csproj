@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>eeb982ec-4dbc-4995-a695-eb627b90913a</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\V1\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Extensions.Converters\Extensions.Converters.csproj" />
+    <ProjectReference Include="..\Extensions.DateTime.Converters\Extensions.DateTime.Converters.csproj" />
+    <ProjectReference Include="..\Extensions.DateTime\Extensions.DateTime.csproj" />
+    <ProjectReference Include="..\Extensions.Generator\Extensions.Generator.csproj" />
+    <ProjectReference Include="..\Extensions.HttpClient\Extensions.Http.csproj" />
+    <ProjectReference Include="..\Extensions.IP\Extensions.IP.csproj" />
+    <ProjectReference Include="..\Extensions.Password\Extensions.Password.csproj" />
+    <ProjectReference Include="..\Extensions.Repository\Extensions.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
