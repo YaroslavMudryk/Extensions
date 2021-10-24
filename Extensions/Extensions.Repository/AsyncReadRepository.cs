@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Extensions.Repository.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 namespace Extensions.Repository
 {
-    public class AsyncReadRepository<TEntity> : IAsyncReadRepository<TEntity> where TEntity : class
+    public partial class AsyncReadRepository<TEntity> : IAsyncReadRepository<TEntity> where TEntity : class
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<TEntity> _dbSet;
@@ -16,48 +17,69 @@ namespace Extensions.Repository
             _dbSet = _dbContext.Set<TEntity>();
         }
 
-        public async Task<long> CountAsync(Expression<Func<TEntity, bool>> predicate = null)
-        {
-            if (predicate is null)
-                return await _dbSet.LongCountAsync();
-            return await _dbSet.LongCountAsync(predicate);
-        }
-
         public ValueTask DisposeAsync()
         {
             return _dbContext.DisposeAsync();
         }
 
-        public async Task<List<TEntity>> GetAllAsync(bool disableTracking = true)
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate = null)
         {
-            IQueryable<TEntity> query = _dbSet;
-            if (disableTracking)
-                query = query.AsNoTracking();
-            return await query.ToListAsync();
+            if (predicate is null)
+                return await _dbSet.CountAsync();
+            return await _dbSet.CountAsync(predicate);
         }
 
-        public async Task<List<TEntity>> GetAllPagedAsync<TKey>(int count, int skip, Expression<Func<TEntity, TKey>> keySelector = null)
+        public async Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return await _dbSet.AsNoTracking()
-                .OrderBy(keySelector)
-                .Skip(skip).Take(count)
-                .ToListAsync();
+            if (predicate is null)
+                return await _dbSet.AnyAsync();
+            return await _dbSet.FirstOrDefaultAsync(predicate) is not null;
         }
 
-        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, bool disableTracking = true)
+        public async Task<List<TEntity>> GetAllAsync()
         {
-            IQueryable<TEntity> query = _dbSet;
-            if (disableTracking)
-                query = query.AsNoTracking();
-            return await query.FirstOrDefaultAsync(predicate);
+            return await _dbSet.AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate, bool disableTracking = true)
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            IQueryable<TEntity> query = _dbSet;
-            if (disableTracking)
-                query = query.AsNoTracking();
-            return await query.Where(predicate).ToListAsync();
+            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(predicate);
+        }
+
+        public async Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _dbSet.AsNoTracking().Where(predicate).ToListAsync();
+        }
+
+        public async Task<IPagedList<TEntity>> GetPagedListAsync<TKey>(Expression<Func<TEntity, bool>> predicate, int page = 1, int countPerPage = 20, Expression<Func<TEntity, TKey>> orderBy = null, OrderType orderType = OrderType.Ascending)
+        {
+            var totalCount = await CountAsync(predicate);
+
+            int skip = 0;
+
+            if (totalCount < countPerPage)
+            {
+                countPerPage = totalCount;
+                skip = 0;
+            }
+            else
+            {
+                skip = page > 1 ? (page - 1) * countPerPage : 0;
+            }
+
+            IQueryable<TEntity> _items = _dbSet.AsNoTracking().Where(predicate);
+
+            if (orderBy != null)
+            {
+                if (orderType == OrderType.Ascending)
+                    _items = _items.OrderBy(orderBy);
+                else
+                    _items = _items.OrderByDescending(orderBy);
+            }
+
+            var items = await _items.Skip(skip).Take(countPerPage).ToListAsync();
+
+            return new PagedList<TEntity>(items, totalCount, page, countPerPage);
         }
     }
 }
