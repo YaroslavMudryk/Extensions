@@ -16,6 +16,7 @@
     <ProjectReference Include="..\Extensions.Converters\Extensions.Converters.csproj" />
     <ProjectReference Include="..\Extensions.DateTime.Converters\Extensions.DateTime.Converters.csproj" />
     <ProjectReference Include="..\Extensions.DateTime\Extensions.DateTime.csproj" />
+    <ProjectReference Include="..\Extensions.DeviceDetector\Extensions.DeviceDetector.csproj" />
     <ProjectReference Include="..\Extensions.Generator\Extensions.Generator.csproj" />
     <ProjectReference Include="..\Extensions.HttpClient\Extensions.Http.csproj" />
     <ProjectReference Include="..\Extensions.IP\Extensions.IP.csproj" />

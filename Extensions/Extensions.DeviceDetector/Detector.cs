@@ -19,10 +19,10 @@ namespace Extensions.DeviceDetector
             var bot = dd.GetBot();
             return bot.Success ? new Bot
             {
-                Name = bot.Match.Name,
-                Category = bot.Match.Category,
+                Name = getStringOrNull(bot.Match.Name),
+                Category = getStringOrNull(bot.Match.Category),
                 Producer = bot.Match.Producer,
-                Url = bot.Match.Url
+                Url = getStringOrNull(bot.Match.Url)
             } : null;
         }
 
@@ -32,12 +32,12 @@ namespace Extensions.DeviceDetector
             var browser = dd.GetBrowserClient();
             return browser.Success ? new Browser
             {
-                Name = browser.Match.Name,
-                Engine = browser.Match.Engine,
-                Type = browser.Match.Type,
-                Version = browser.Match.Version,
-                EngineVersion = browser.Match.EngineVersion,
-                ShortName = browser.Match.ShortName
+                Name = getStringOrNull(browser.Match.Name),
+                Engine = getStringOrNull(browser.Match.Engine),
+                Type = getStringOrNull(browser.Match.Type),
+                Version = getStringOrNull(browser.Match.Version),
+                EngineVersion = getStringOrNull(browser.Match.EngineVersion),
+                ShortName = getStringOrNull(browser.Match.ShortName)
             } : null;
         }
 
@@ -54,20 +54,20 @@ namespace Extensions.DeviceDetector
             var browser = dd.GetBrowserClient();
             var browserInfo = browser.Success ? new Browser
             {
-                Name = browser.Match.Name,
-                Engine = browser.Match.Engine,
-                Type = browser.Match.Type,
-                Version = browser.Match.Version,
-                EngineVersion = browser.Match.EngineVersion,
-                ShortName = browser.Match.ShortName
+                Name = getStringOrNull(browser.Match.Name),
+                Engine = getStringOrNull(browser.Match.Engine),
+                Type = getStringOrNull(browser.Match.Type),
+                Version = getStringOrNull(browser.Match.Version),
+                EngineVersion = getStringOrNull(browser.Match.EngineVersion),
+                ShortName = getStringOrNull(browser.Match.ShortName)
             } : null;
             var os = dd.GetOs();
             var osInfo = os.Success ? new OS
             {
-                Name = os.Match.Name,
-                Version = os.Match.Version,
-                Platform = os.Match.Platform,
-                ShortName = os.Match.ShortName
+                Name = getStringOrNull(os.Match.Name),
+                Version = getStringOrNull(os.Match.Version),
+                Platform = getStringOrNull(os.Match.Platform),
+                ShortName = getStringOrNull(os.Match.ShortName)
             } : null;
             return new ClientInfo
             {
@@ -95,20 +95,20 @@ namespace Extensions.DeviceDetector
             var browser = dd.GetBrowserClient();
             var browserInfo = browser.Success ? new Browser
             {
-                Name = browser.Match.Name,
-                Engine = browser.Match.Engine,
-                Type = browser.Match.Type,
-                Version = browser.Match.Version,
-                EngineVersion = browser.Match.EngineVersion,
-                ShortName = browser.Match.ShortName
+                Name = getStringOrNull(browser.Match.Name),
+                Engine = getStringOrNull(browser.Match.Engine),
+                Type = getStringOrNull(browser.Match.Type),
+                Version = getStringOrNull(browser.Match.Version),
+                EngineVersion = getStringOrNull(browser.Match.EngineVersion),
+                ShortName = getStringOrNull(browser.Match.ShortName)
             } : null;
             var os = dd.GetOs();
             var osInfo = os.Success ? new OS
             {
-                Name = os.Match.Name,
-                Version = os.Match.Version,
-                Platform = os.Match.Platform,
-                ShortName = os.Match.ShortName
+                Name = getStringOrNull(os.Match.Name),
+                Version = getStringOrNull(os.Match.Version),
+                Platform = getStringOrNull(os.Match.Platform),
+                ShortName = getStringOrNull(os.Match.ShortName)
             } : null;
             return new ClientInfo
             {
@@ -136,10 +136,10 @@ namespace Extensions.DeviceDetector
             var os = dd.GetOs();
             return os.Success ? new OS
             {
-                Name = os.Match.Name,
-                Version = os.Match.Version,
-                Platform = os.Match.Platform,
-                ShortName = os.Match.ShortName
+                Name = getStringOrNull(os.Match.Name),
+                Version = getStringOrNull(os.Match.Version),
+                Platform = getStringOrNull(os.Match.Platform),
+                ShortName = getStringOrNull(os.Match.ShortName)
             } : null;
         }
 
