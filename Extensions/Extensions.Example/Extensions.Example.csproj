@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Extensions.Generator\Extensions.Generator.csproj" />
     <ProjectReference Include="..\Extensions.HttpClient\Extensions.Http.csproj" />
     <ProjectReference Include="..\Extensions.IP\Extensions.IP.csproj" />
+    <ProjectReference Include="..\Extensions.LinkPreview\Extensions.LinkPreview.csproj" />
     <ProjectReference Include="..\Extensions.Password\Extensions.Password.csproj" />
     <ProjectReference Include="..\Extensions.Repository\Extensions.Repository.csproj" />
   </ItemGroup>

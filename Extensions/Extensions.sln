@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.IP", "Extensions
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.Example", "Extensions.Example\Extensions.Example.csproj", "{720B77AC-6F9C-4A4D-9DEA-136DDC54D1F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.DeviceDetector", "Extensions.DeviceDetector\Extensions.DeviceDetector.csproj", "{A6FE7F92-299B-43BB-88DA-E109F48771B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.DeviceDetector", "Extensions.DeviceDetector\Extensions.DeviceDetector.csproj", "{A6FE7F92-299B-43BB-88DA-E109F48771B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.LinkPreview", "Extensions.LinkPreview\Extensions.LinkPreview.csproj", "{B6EE2368-E1B3-4CCC-A947-23E77EBE548B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{A6FE7F92-299B-43BB-88DA-E109F48771B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6FE7F92-299B-43BB-88DA-E109F48771B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6FE7F92-299B-43BB-88DA-E109F48771B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EE2368-E1B3-4CCC-A947-23E77EBE548B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EE2368-E1B3-4CCC-A947-23E77EBE548B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EE2368-E1B3-4CCC-A947-23E77EBE548B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EE2368-E1B3-4CCC-A947-23E77EBE548B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,7 @@
 ﻿using Extensions.DeviceDetector;
+using Extensions.LinkPreview;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Extensions.Example.Controllers.V1
 {
@@ -16,6 +18,12 @@ namespace Extensions.Example.Controllers.V1
         public IActionResult GetInfo()
         {
             return Ok(_detector.GetClientInfo());
+        }
+
+        [HttpGet("preview")]
+        public async Task<IActionResult> GetLinkPreview(string q)
+        {
+            return Ok(await q.GetLinkInfoAsync());
         }
     }
 }
