@@ -1,5 +1,6 @@
 ﻿using Extensions.Generator;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Extensions.Example.Controllers.V1
@@ -28,10 +29,7 @@ namespace Extensions.Example.Controllers.V1
         [HttpGet("uniq")]
         public IActionResult GetUniqCode()
         {
-            return Ok(new
-            {
-                result = RandomGenerator.GetUniqCode(4).ToUpper()
-            });
+            return Ok(RandomGenerator.GetUniqCode().ToUpper()); //8AJY-TM3S-9OX2-TGUW
         }
     }
 }
